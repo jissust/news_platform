@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export interface HeroSlide {
+  id?: number;
   src: string;
   href?: string;
   category?: string;
@@ -34,28 +35,26 @@ export const Hero = ({ slides }: HeroProps) => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      
-        <div className="absolute inset-0">
-            {slides.map((slide, index) => (
-            <Image
-                key={slide.src}
-                src={slide.src}
-                alt={slide.title || "Hero image"}
-                fill
-                priority={index === 0}
-                className={`
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <Image
+            key={slide.src}
+            src={slide.src}
+            alt={slide.title || "Hero image"}
+            fill
+            priority={index === 0}
+            className={`
                 absolute inset-0 object-cover
                 transition-all duration-1000 ease-in-out
                 ${
-                current === index
+                  current === index
                     ? "opacity-100 scale-105"
                     : "opacity-0 scale-100"
                 }
             `}
-            />
-            ))}
-        </div>
-      
+          />
+        ))}
+      </div>
 
       <div className="absolute inset-0 bg-black/40" />
 
@@ -68,16 +67,17 @@ export const Hero = ({ slides }: HeroProps) => {
               </span>
             )}
 
-            { slide.title && (
+            {slide.title && (
               <h1 className="mt-4 text-white text-3xl md:text-5xl font-bold">
                 {slide.href ? (
                   <Link href={slide.href || "#"} className="hover:underline">
                     {slide.title}
                   </Link>
                 ) : (
-                slide.title
-              )}
-            </h1>)}
+                  slide.title
+                )}
+              </h1>
+            )}
 
             {slide.text && (
               <p className="mt-3 text-white/90 text-base md:text-lg">
@@ -90,7 +90,7 @@ export const Hero = ({ slides }: HeroProps) => {
                 {slide.date}
               </span>
             )}
-          </div>    
+          </div>
         </div>
       </div>
 
