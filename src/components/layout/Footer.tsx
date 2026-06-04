@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { NavLinks } from "@/components/ui/navigation/NavLink";
-import { SocialNetworks } from "@/components/ui/socialNetworks/SocialNetworks";
+import { NavLinks } from "@/components/ui/Navigation/NavLink";
+import { SocialNetworks } from "@/components/ui/SocialNetworks/SocialNetworks";
 
 export const Footer = () => {
   return (

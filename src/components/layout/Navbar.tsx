@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { NavLinks } from "@/components/ui/navigation/NavLink";
+import { NavLinks } from "@/components/ui/Navigation/NavLink";
 import { usePathname } from "next/navigation";
-import { SocialNetworks } from "@/components/ui/socialNetworks/SocialNetworks";
+import { SocialNetworks } from "@/components/ui/SocialNetworks/SocialNetworks";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
