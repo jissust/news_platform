@@ -13,14 +13,8 @@ export const TeamTracking = () => {
         <div className="max-w-7xl mx-auto px-6">
           <h1>Team tracking</h1>
             <Standings title="Grupo A" standings={GroupA} />
-            <br />
-            <br />
             <Standings title="Grupo B" standings={GroupB} />
-            <br />
-            <br />
             <UpcomingMatches />
-            <br />
-            <br />
             <RecentMatches />
         </div>
       </section>
