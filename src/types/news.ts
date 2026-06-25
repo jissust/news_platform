@@ -5,6 +5,7 @@ export interface News {
   text?: string;
   date?: string;
   documentId?: string;
+  slug: string;
   image?: {
     url?: string;
   };
