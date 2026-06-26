@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MarkdownRenderer } from "@/components/ui/markdownRenderer/MarkdownRenderer";
 import { RelatedNewsColumn } from "@/components/ui/RelatedNewsColumn/RelatedNewsColumn";
+import { ShareNews } from "@/components/ui/ShareNews/ShareNews";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -38,7 +39,7 @@ export default async function NewsDetail({ params }: Props) {
   const news = await getNews(slug);
   const categories = news.categories;
   const categorySlug = categories[0].slug || "";
-  
+    console.log(news)
   if (!news) {
     notFound();
   }
@@ -62,8 +63,9 @@ export default async function NewsDetail({ params }: Props) {
           <h2 className="mt-4 text-lg font-semibold">
             {news.descent}
           </h2>
+          <ShareNews title={news.title} url={API_URL+"/noticia/"+news.slug} />
           {image && (
-            <figure className="mt-8 mb-4 relative w-full">
+            <figure className="my-4 relative w-full">
               <Image
                 width={500}
                 height={500}
