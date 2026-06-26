@@ -1,9 +1,9 @@
-import { getLatestNews } from "@/services/news";
+import { getRelatedNewsByCategory } from "@/services/news";
 import { CardNewMin } from "../CardNewMin/CardNewMin";
 
-export const RelatedNewsColumn = async () => {
-  const news = await getLatestNews();
-  console.log(news);
+export const RelatedNewsColumn = async (categorySlug: any) => {
+  const news = await getRelatedNewsByCategory(categorySlug.categorySlug);
+  
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Noticias Relacionadas</h1>
