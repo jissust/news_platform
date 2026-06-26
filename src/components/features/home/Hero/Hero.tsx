@@ -69,7 +69,7 @@ export const Hero = ({ slides }: HeroProps) => {
             {slide.title && (
               <h1 className="mt-4 text-white text-3xl md:text-5xl font-bold">
                 <Link
-                  href={`/noticias/${slide.documentId}`}
+                  href={`/noticia/${slide.slug}`}
                   className="hover:underline"
                 >
                   {slide.title}
