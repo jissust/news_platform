@@ -3,11 +3,9 @@
 import {
   FaFacebook,
   FaWhatsapp,
-  FaInstagram,
 } from "react-icons/fa";
 
 import { FaXTwitter } from "react-icons/fa6";
-import { SiTiktok } from "react-icons/si";
 
 type Props = {
   title: string;
