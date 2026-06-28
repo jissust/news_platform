@@ -15,12 +15,12 @@ export const MarkdownRenderer = ({ content }: Props) => {
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ children }) => (
-          <h1 className="text-3xl md:text-4xl font-bold mt-6 mb-4 text-white">
+          <h1 className="text-3xl md:text-4xl font-bold mt-6 mb-4">
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-2xl font-semibold mt-5 mb-3 text-white">
+          <h2 className="text-2xl font-semibold mt-5 mb-3">
             {children}
           </h2>
         ),
@@ -35,7 +35,7 @@ export const MarkdownRenderer = ({ content }: Props) => {
         ),
 
         strong: ({ children }) => (
-          <strong className="font-bold text-white">{children}</strong>
+          <strong className="font-bold">{children}</strong>
         ),
 
         em: ({ children }) => (
