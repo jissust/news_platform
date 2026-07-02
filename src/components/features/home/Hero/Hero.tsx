@@ -31,6 +31,7 @@ export const Hero = ({ slides }: HeroProps) => {
     return `${truncated.slice(0, truncated.lastIndexOf(" "))}...`;
   };
 
+  const category = slide?.categories?.[0] ?? null;
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
@@ -69,7 +70,7 @@ export const Hero = ({ slides }: HeroProps) => {
             {slide.title && (
               <h1 className="mt-4 text-white text-3xl md:text-5xl font-bold">
                 <Link
-                  href={`/noticia/${slide.slug}`}
+                  href={`/noticias/${category?.slug}/${slide.slug}`}
                   className="hover:underline"
                 >
                   {slide.title}
