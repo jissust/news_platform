@@ -1,7 +1,6 @@
 import { upcomingMatchesMock as matches } from "@/mock/upcomingMatchesMock";
 
 export const UpcomingMatches = () => {
-  console.log(matches);
   return (
     <section className="bg-neutral-900 rounded-xl p-6">
       <h1 className="text-2xl font-bold text-white mb-6">Proximos Partidos</h1>
