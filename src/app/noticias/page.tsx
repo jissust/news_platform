@@ -3,7 +3,7 @@ import { NewsList } from "@/components/ui/NewsList/NewsList";
 
 export default async function NewsPage() {
   const news = await getLatestNews();
-  console.log(news);
+  
   return (
     <section className="w-full py-40">
       <div className="max-w-7xl mx-auto px-6">
