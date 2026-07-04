@@ -4,6 +4,7 @@ import { MarkdownRenderer } from "@/components/ui/markdownRenderer/MarkdownRende
 import { RelatedNewsColumn } from "@/components/ui/RelatedNewsColumn/RelatedNewsColumn";
 import { ShareNews } from "@/components/ui/ShareNews/ShareNews";
 import { Author } from "@/components/ui/Author/Author";
+import { CategoryBadge } from "@/components/ui/CategoryBadge/CategoryBadge";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -57,9 +58,9 @@ export default async function NewsDetail({ params }: Props) {
       <div className="max-w-7xl mx-auto px-6 gap-8 grid grid-cols-1 lg:grid-cols-12">
         <div className="mx-auto lg:col-start-1 lg:col-end-10">
           <header>
-            <span className="inline-block px-4 py-2 bg-gold rounded-full text-sm font-semibold mb-4 bg-black text-white">
-              {news.categories[0]?.name}
-            </span>
+    
+            <CategoryBadge category={news.categories[0]} />
+            
             <h1 className="text-4xl md:text-6xl font-bold">
               {news.title}
             </h1>
