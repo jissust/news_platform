@@ -1,15 +1,10 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { CustomSelect } from "../CustomSelect/CustomSelect";
-
-type Category = {
-  id: number;
-  slug: string;
-  name: string;
-};
+import { categoryType } from "@/types/category";
 
 type Props = {
-  categories: Category[];
+  categories: categoryType[];
 };
 
 export const CategoryFilter = ({ categories }: Props) => {
