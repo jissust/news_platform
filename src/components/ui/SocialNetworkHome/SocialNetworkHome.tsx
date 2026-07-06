@@ -65,7 +65,7 @@ export const SocialNetworksHome = () => {
                   bg-white
                   transition-all
                   duration-300
-                  hover:-translate-y-2
+                  hover:-translate-y-1
                   hover:shadow-xl
                 "
               >
