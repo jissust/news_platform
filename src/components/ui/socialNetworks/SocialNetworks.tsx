@@ -1,49 +1,79 @@
-import { FaInstagram, FaWhatsapp, FaPhone, FaMailBulk } from "react-icons/fa";
+import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaXTwitter,
+  FaTiktok,
+} from "react-icons/fa6";
+import { IconType } from "react-icons";
 
-export const SocialNetworks = () => {
-  const handleContactClick = (method: string) => {
-    console.log(method);
-    //sendGTMEvent({ event: "contact_click", method, location: "footer" });
-  };
+type SocialNetwork = {
+  name: string;
+  href: string;
+  icon: IconType;
+};
 
+const socialLinks: SocialNetwork[] = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com",
+    icon: FaFacebookF,
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com",
+    icon: FaInstagram,
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com",
+    icon: FaYoutube,
+  },
+  {
+    name: "X",
+    href: "https://x.com",
+    icon: FaXTwitter,
+  },
+  {
+    name: "TikTok",
+    href: "https://tiktok.com",
+    icon: FaTiktok,
+  },
+];
+
+type SocialNetworksProps = {
+  size?: number;
+  iconClassName?: string;
+  itemClassName?: string;
+};
+
+export const SocialNetworks = ({
+  size = 40,
+  iconClassName = "",
+  itemClassName = "",
+}: SocialNetworksProps) => {
   return (
-    <div className="flex gap-4 text-center justify-center">
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-gray-300 text-xl"
-        onClick={() => handleContactClick("instagram")}
-      >
-        <FaInstagram />
-      </a>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-gray-300 text-xl"
-        onClick={() => handleContactClick("whatsapp")}
-      >
-        <FaWhatsapp />
-      </a>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-gray-300"
-        onClick={() => handleContactClick("phone")}
-      >
-        <FaPhone />
-      </a>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-gray-300 text-xl"
-        onClick={() => handleContactClick("email")}
-      >
-        <FaMailBulk />
-      </a>
-    </div>
+    <>
+      {socialLinks.map((social) => {
+        const Icon = social.icon;
+
+        return (
+          <Link
+            key={social.name}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.name}
+            className={itemClassName}
+          >
+            <Icon
+              size={size}
+              className={iconClassName}
+            />
+          </Link>
+        );
+      })}
+    </>
   );
 };
