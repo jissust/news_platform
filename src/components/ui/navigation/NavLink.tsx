@@ -14,6 +14,10 @@ export const NavLinks = ({
   return (
     <>
       <NewsCategoriesDropdown categories={categories} />
+      
+      <Link href="/#ultimas-noticias" className="font-semibold hover:text-gold text-white" >
+        Últimas Noticias
+      </Link>
 
       <Link href="/#ultimos-videos" className="font-semibold hover:text-gold text-white" >
         Últimos Videos
