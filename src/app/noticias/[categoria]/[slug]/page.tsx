@@ -6,6 +6,7 @@ import { ShareNews } from "@/components/ui/ShareNews/ShareNews";
 import { Author } from "@/components/ui/Author/Author";
 import { CategoryBadge } from "@/components/ui/CategoryBadge/CategoryBadge";
 import { Breadcrumb } from "@/components/ui/Breadcrumb/Breadcrumb";
+import { getNewsDetail } from "@/services/news";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -15,31 +16,9 @@ type Props = {
   };
 };
 
-async function getNews(slug: string) {
-  
-    try {
-    const res = await fetch(
-      `${API_URL}/api/news?filters[slug][$eq]=${slug}&populate[author][populate]=*&populate[categories][populate]=*&populate[image][populate]=*`,
-      {
-        cache: "no-store",
-      },
-    );
-
-    if (!res.ok) {
-      return null;
-    }
-
-    const data = await res.json();
-
-    return data.data[0];
-  } catch {
-    return null;
-  }
-}
-
 export default async function NewsDetail({ params }: Props) {
   const { slug } = await params;
-  const news = await getNews(slug);
+  const news = await getNewsDetail(slug);
   const author = news.author;
   
   const categories = news.categories;
