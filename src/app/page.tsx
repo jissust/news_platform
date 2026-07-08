@@ -5,7 +5,7 @@ import { getFeaturedNews } from "@/services/news";
 import { LatestVideos } from "@/components/features/home/LatestVideos/LatestVideos";
 import { getLatestVideos } from "@/services/youtube";
 import { TeamTracking } from "@/components/features/home/TeamTracking/TeamTracking";
-import { SocialNetworksHome } from "@/components/features/home/SocialNetworkHome/SocialNetworkHome";
+import { SocialNetworksHome } from "@/components/features/home/SocialNetworksHome/SocialNetworksHome";
 
 export default async function Home() {
   const getNewsHome = await getNews({featured: false, page: 1, pageSize: 9});
