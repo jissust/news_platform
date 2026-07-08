@@ -62,6 +62,7 @@ export async function getRelatedNewsByCategory(slug: string) {
       news.categories?.some((c) => c.slug === slug),
     );
   }
+
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/news?filters[categories][slug][$eq]=${slug}&populate=*&sort=id:desc`,
@@ -75,5 +76,30 @@ export async function getRelatedNewsByCategory(slug: string) {
   } catch (err) {
     console.error("Error fetching news:", err);
     return [];
+  }
+}
+
+export async function getNewsDetail(slug: string) {
+  if (USE_MOCKS) {
+    return newsMock.data.find((n) => n.slug === slug) ?? null;
+  }
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/news?filters[slug][$eq]=${slug}&populate[author][populate]=*&populate[categories][populate]=*&populate[image][populate]=*`,
+      {
+        cache: "no-store",
+      },
+    );
+
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = await res.json();
+
+    return data.data[0];
+  } catch {
+    return null;
   }
 }
